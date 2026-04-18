@@ -26,9 +26,9 @@ function AdBlockerWall() {
   );
 }
 
-function BannerAd({ height = 90, label = 'Advertisement' }: { height?: number; label?: string }) {
+function BannerAd({ width, height = 90, label = 'Advertisement' }: { width?: number | string; height?: number; label?: string }) {
   return (
-    <div style={{ width: '100%', height, background: 'linear-gradient(135deg, #0d1117 0%, #161b22 100%)', border: '1px dashed #21262D', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ width: width || '100%', height, background: 'linear-gradient(135deg, #0d1117 0%, #161b22 100%)', border: '1px dashed #21262D', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
       <span style={{ fontSize: '11px', color: '#8B949E', letterSpacing: '0.15em', textTransform: 'uppercase' }}>{label}</span>
     </div>
   );
@@ -164,7 +164,7 @@ function HomeContent() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       {/* Sticky top ad */}
       <div style={{ position: 'sticky', top: 0, zIndex: 100, background: 'var(--bg)', borderBottom: '1px solid var(--border)', padding: '8px 24px' }}>
-        <BannerAd height={60} label="728×90 Leaderboard Ad" />
+        <BannerAd width={728} height={90} label="728×90 Leaderboard Ad" />
       </div>
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
@@ -179,7 +179,7 @@ function HomeContent() {
             </div>
           </div>
 
-          <BannerAd height={100} label="970×90 Billboard Ad" />
+          <BannerAd width={970} height={90} label="970×90 Billboard Ad" />
 
           {/* ── Search bar ── */}
           <div style={{ margin: '28px 0 0', position: 'relative' }}>
@@ -363,9 +363,9 @@ function HomeContent() {
             <div style={{ position: 'sticky', top: '90px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <div style={{ fontSize: '10px', color: 'var(--text2)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Sponsored</div>
-                <BannerAd height={250} label="300×250 Rectangle" />
+                <BannerAd width={300} height={250} label="300×250 Rectangle" />
               </div>
-              <BannerAd height={600} label="300×600 Half-Page" />
+              <BannerAd width={300} height={600} label="300×600 Half-Page" />
             </div>
           </aside>
         </div>

@@ -84,13 +84,13 @@ interface App {
   createdAt: string;
 }
 
-function BannerAd({ height = 90, label = 'Advertisement' }: { height?: number; label?: string }) {
+function BannerAd({ width, height = 90, label = 'Advertisement' }: { width?: number | string; height?: number; label?: string }) {
   return (
     <div style={{
-      width: '100%', height,
+      width: width || '100%', height,
       background: 'linear-gradient(135deg, #0d1117 0%, #161b22 100%)',
       border: '1px dashed #21262D', borderRadius: '8px',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto',
     }}>
       <span style={{ fontSize: '11px', color: '#8B949E', letterSpacing: '0.15em', textTransform: 'uppercase' }}>{label}</span>
     </div>
@@ -201,7 +201,7 @@ export default function AppPage() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       {/* Top ad */}
       <div style={{ background: 'var(--bg)', borderBottom: '1px solid var(--border)', padding: '8px 24px' }}>
-        <BannerAd height={60} label="728×90 Leaderboard Ad" />
+        <BannerAd width={728} height={90} label="728×90 Leaderboard Ad" />
       </div>
 
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 24px' }}>
